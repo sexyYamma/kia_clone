@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import Logo from "../../assets/Logo";
+import Logo from "../../assets/WhiteLogo";
 
 const Login = () => {
   return (
