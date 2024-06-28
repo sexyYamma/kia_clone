@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../../assets/Logo';
+import WhiteLogo from '../../assets/WhiteLogo';
 
 
 const Header = () => {
@@ -15,7 +15,7 @@ const Header = () => {
         <NavText>Discover Kia</NavText>
       </Nav>
       <LogoLayout>
-        <Logo />
+        <WhiteLogo />
       </LogoLayout>
       <RightNav>
         <NavText>KR</NavText>
