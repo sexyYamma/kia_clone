@@ -44,6 +44,9 @@ export const NavText = styled.button`
 `;
 
 export const Cars = styled.div`
+  padding-top: 72px;
   width: 100%;
   display: flex;
+  justify-content: center;
+  gap: 24px;
 `;

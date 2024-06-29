@@ -24,6 +24,8 @@ const SecondPage = () => {
       </S.Header>
       <S.Cars>
         <CarDetail />
+        <CarDetail />
+        <CarDetail />
       </S.Cars>
     </S.Layout>
   );
