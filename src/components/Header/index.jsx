@@ -13,13 +13,12 @@ const Header = ({ type }) => {
     { value: "고객지원", location: "/" },
     { value: "Discover Kia", location: "/" },
   ];
-  const headerState = type;
 
   return (
-    <Layout headerState={headerState}>
+    <Layout headerState={type}>
       <Nav>
         {LNavList.map((item, index) => (
-          <LNavText key={index} headerState={headerState} to={item.location}>
+          <LNavText key={index} headerState={type} to={item.location}>
             {item.value}
           </LNavText>
         ))}
@@ -29,18 +28,21 @@ const Header = ({ type }) => {
           navigate("/");
         }}
       >
-        <WhiteLogo color={headerState === "white" ? "#FFF" : "#000"} />
+        <WhiteLogo color={type === "white" ? "#FFF" : "#000"} />
       </LogoLayout>
       <RightNav>
-        <RNavText headerState={headerState}>KR</RNavText>
-        <RNavText headerState={headerState}>통합검색</RNavText>
-        <RNavText headerState={headerState}>로그인</RNavText>
+        <RNavText headerState={type}>KR</RNavText>
+        <RNavText headerState={type}>통합검색</RNavText>
+        <RNavText headerState={type} to="/login">
+          로그인
+        </RNavText>
       </RightNav>
     </Layout>
   );
 };
 
 const Layout = styled.header`
+  position: relative;
   width: 100%;
   height: 80px;
   display: flex;

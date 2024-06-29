@@ -1,19 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import Logo from "../../assets/WhiteLogo";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    id: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const handleClickButton = () => {
+    localStorage.setItem("id", inputs.id);
+    navigate("/");
+  };
+
   return (
     <S.Container>
       <S.Header>
-        <Logo />
+        <S.LogoLayout onClick={() => navigate("/")}>
+          <Logo color="black" />
+        </S.LogoLayout>
       </S.Header>
       <S.Layout>
         <S.Inputs>
           <S.Input_Title>∙ 이메일 로그인</S.Input_Title>
-          <S.Input_Box type="text" placeholder="이메일" />
-          <S.Input_Box type="password" placeholder="비밀번호" />
-          <S.Button>로그인</S.Button>
+          <S.Input_Box
+            name="id"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="이메일"
+            value={inputs.id}
+          />
+          <S.Input_Box
+            name="password"
+            onChange={handleInputChange}
+            type="password"
+            placeholder="비밀번호"
+            value={inputs.password}
+          />
+          <S.Button onClick={handleClickButton}>로그인</S.Button>
           <S.Nav>
             <S.Left>
               <S.Item>아이디 찾기</S.Item>
