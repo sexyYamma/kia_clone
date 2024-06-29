@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
+import VehicleCard from "../../components/VehicleCard";
+import CarData from '../../data/car.json'
 
 const Vehicles = () => {
   const carType = ["EV & PBV", "승용", "RV", "택시 & 버스 & 상용"];
@@ -24,7 +26,11 @@ const Vehicles = () => {
       </MainNavLayout>
       <VehiclesLayout>
         <VehiclesContents>
-
+          {
+            CarData.map((item,index) => (
+              <VehicleCard name={item.name} price={item.price} img={require(`../../assets/${item.img}`)} />
+            ))
+          }
         </VehiclesContents>
       </VehiclesLayout>
     </Layout>
@@ -67,6 +73,7 @@ const VehiclesLayout = styled.div`
   width: 100%;
   max-width: 84pc;
   padding: 94pt 0 0;
+  margin: 0 auto;
 `
 
 const VehiclesContents = styled.div`
