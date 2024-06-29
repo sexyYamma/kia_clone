@@ -1,0 +1,44 @@
+import styled from "styled-components";
+
+export const Layout = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Header = styled.div`
+  padding-top: 120px;
+`;
+
+export const Title = styled.p`
+  color: #05141f;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 54.18px;
+`;
+
+export const Type = styled.div`
+  padding-top: 40px;
+  display: flex;
+  gap: 48px;
+`;
+
+export const NavText = styled.button`
+  color: ${({ isSelected }) => (isSelected ? "#05141F" : "#697278")};
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  background-color: transparent;
+  border-bottom: ${({ isSelected }) =>
+    isSelected ? "2px solid black" : "none"};
+  cursor: pointer;
+`;
+
+export const Cars = styled.div`
+  width: 100%;
+  display: flex;
+`;

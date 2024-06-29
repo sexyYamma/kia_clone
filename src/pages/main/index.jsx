@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../../components/Header";
 import * as S from "./style";
-import Footer from "../../components/Footer";
+// import Footer from "../../components/Footer";
+import SecondPage from "./layouts/SecondPage";
 
 const Main = () => {
   return (
@@ -10,7 +11,8 @@ const Main = () => {
         <Header type="white" />
         <S.BackgroundImg />
       </S.FirstPage>
-      <Footer />
+      <SecondPage />
+      {/* <Footer /> */}
     </S.Layout>
   );
 };
