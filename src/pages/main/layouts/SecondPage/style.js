@@ -51,3 +51,11 @@ export const Cars = styled.div`
   gap: 24px;
   flex-wrap: wrap;
 `;
+
+export const Notice = styled.p`
+  padding-top: 36px;
+  color: #697278;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26.04px;
+`;

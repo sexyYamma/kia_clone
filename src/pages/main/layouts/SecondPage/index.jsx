@@ -41,6 +41,9 @@ const SecondPage = () => {
           />
         ))}
       </S.Cars>
+      <S.Notice>
+        ※ 차량의 출시일 기준이며 차량별 사양 구성은 최다 판매 기준입니다.
+      </S.Notice>
     </S.Layout>
   );
 };
