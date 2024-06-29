@@ -7,7 +7,7 @@ import MainCar from '../../assets/MainCar.png'
 const Main = () => {
   return (
     <Layout>
-      <Header />
+      <Header type="white" />
       <BackgroundImg />
     </Layout>
   );
