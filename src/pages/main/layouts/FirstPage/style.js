@@ -4,6 +4,7 @@ import MainCar from "../../../../assets/MainCar.png";
 export const Layout = styled.div`
   width: 100%;
   height: 100vh;
+  z-index: 1;
 `;
 export const BackgroundImg = styled.div`
   width: 100%;
@@ -37,7 +38,7 @@ grid-template-rows: 140px 1fr 130px;
 height: 100%;
 position: relative;
 width: 100%;
-z-index: 1;
+z-index: 0;
 `
 export const Contents = styled.div`
   width: 100%;

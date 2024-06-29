@@ -16,6 +16,10 @@ export const Header = styled.div`
   align-items: center;
 `;
 
+export const LogoLayout = styled.div`
+  cursor: pointer;
+`
+
 export const Layout = styled.div`
   width: 100%;
   display: flex;
@@ -25,7 +29,7 @@ export const Layout = styled.div`
 `;
 
 export const Inputs = styled.div`
-  padding: 52px 760px 0 760px;
+  padding-top: 52px;
   display: flex;
   flex-direction: column;
   gap: 8px;

@@ -1,12 +1,16 @@
 import React from "react";
 import * as S from "./style";
 import Logo from "../../assets/WhiteLogo";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
   return (
     <S.Container>
       <S.Header>
-        <Logo />
+        <S.LogoLayout onClick={() => navigate('/')}>
+          <Logo color="black" />
+        </S.LogoLayout>
       </S.Header>
       <S.Layout>
         <S.Inputs>
