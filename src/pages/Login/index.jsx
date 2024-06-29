@@ -24,7 +24,7 @@ const Login = () => {
               <S.Item>|</S.Item>
               <S.Item>비밀번호 찾기</S.Item>
             </S.Left>
-            <S.Item>회원가입</S.Item>
+            <S.Item to="/register">회원가입</S.Item>
           </S.Nav>
         </S.Inputs>
       </S.Layout>
