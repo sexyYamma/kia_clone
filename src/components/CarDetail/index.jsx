@@ -1,49 +1,60 @@
 import React from "react";
 import * as S from "./style";
-import Car1 from "../../assets/Car1.png";
-
-const CarDetail = () => {
+const CarDetail = ({
+  CarName,
+  Rank,
+  CarSpecification1,
+  CarSpecification2,
+  CarImg,
+  ReleaseDay,
+  High,
+  Amount,
+  OutsideColor,
+  Option1,
+  Option2,
+  Price,
+}) => {
   return (
     <S.Layout>
       <S.Header>
         <S.Left>
-          <S.CarName>The 2024 Morning</S.CarName>
+          <S.CarName>{CarName}</S.CarName>
           <S.CarSpecifications>
-            <S.CarSpecification>1.0 가솔린</S.CarSpecification>
+            <S.CarSpecification>{CarSpecification1}</S.CarSpecification>
             <S.CarSpecification>|</S.CarSpecification>
-            <S.CarSpecification>시그니처 A/T</S.CarSpecification>
+            <S.CarSpecification>{CarSpecification2}</S.CarSpecification>
           </S.CarSpecifications>
         </S.Left>
-        <S.Rank>Top 1</S.Rank>
+        <S.Rank>{Rank}</S.Rank>
       </S.Header>
-      <S.CarImg src={Car1} alt="차 사진" />
+      <S.CarImg src={CarImg} alt="차 사진" />
       <S.CarFeatures>
         <S.CarFeature>
           <S.CarKey>출시일</S.CarKey>
-          <S.CarValue>2024-06-10</S.CarValue>
+          <S.CarValue>{ReleaseDay}</S.CarValue>
         </S.CarFeature>
         <S.CarFeature>
-          <S.CarKey>배기량</S.CarKey>
-          <S.CarValue>998 cc</S.CarValue>
+          <S.CarKey>배터리 용량</S.CarKey>
+          <S.CarValue>{Amount}</S.CarValue>
         </S.CarFeature>
         <S.CarFeature>
           <S.CarKey>최고 출력</S.CarKey>
-          <S.CarValue>76 ps / 6,200 rpm</S.CarValue>
+          <S.CarValue>{High}</S.CarValue>
         </S.CarFeature>
         <S.CarFeature>
           <S.CarKey>외장 컬러</S.CarKey>
-          <S.CarValue>어드벤쳐러스 그린</S.CarValue>
+          <S.CarValue>{OutsideColor}</S.CarValue>
         </S.CarFeature>
         <S.CarFeature>
           <S.CarKey>옵션 (2)</S.CarKey>
           <S.CarValue>
-            드라이브 와이즈 Ⅱ(시그니처) <br /> 스타일(시그니처)
+            {Option1} <br /> {Option2}
           </S.CarValue>
         </S.CarFeature>
       </S.CarFeatures>
       <S.Footer>
         <S.CarPrice>
-          <S.Money>18,300,000</S.Money>
+          <S.Money>{Price}</S.Money>
           <S.Won>원</S.Won>
         </S.CarPrice>
         <S.Buttons>

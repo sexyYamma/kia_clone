@@ -49,4 +49,5 @@ export const Cars = styled.div`
   display: flex;
   justify-content: center;
   gap: 24px;
+  flex-wrap: wrap;
 `;
