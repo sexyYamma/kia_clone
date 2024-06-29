@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import WhiteLogo from "../../assets/WhiteLogo";
 import { Link, useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { login } from "../../atoms/login";
 
 const Header = ({ type }) => {
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ const Header = ({ type }) => {
     { value: "고객지원", location: "/" },
     { value: "Discover Kia", location: "/" },
   ];
+  const [isLogin,setIsLogin] = useAtom(login)
 
   return (
     <Layout headerState={type}>
@@ -33,11 +36,9 @@ const Header = ({ type }) => {
       <RightNav>
         <RNavText headerState={type}>KR</RNavText>
         <RNavText headerState={type}>통합검색</RNavText>
-        {localStorage.getItem("id") ? (
+        {localStorage.getItem("id") && isLogin === true ? (
           <RNavText
-            onClick={() => {
-              localStorage.removeItem("id");
-            }}
+            onClick={() => setIsLogin(false)}
             headerState={type}
           >
             로그아웃

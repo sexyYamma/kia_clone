@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import * as S from "./style";
 import Logo from "../../assets/WhiteLogo";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { login } from "../../atoms/login";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useAtom(login);
   const [inputs, setInputs] = useState({
     id: "",
     password: "",
@@ -26,10 +29,12 @@ const Login = () => {
         localStorage.getItem("id") === inputs.id &&
         localStorage.getItem("pw") === inputs.password
       ) {
+        setIsLogin(true)
         alert("로그인 성공!");
         navigate("/");
       } else {
         alert("일치하는 계정이 없습니다.");
+        setInputs({ id: "", password: "" });
       }
     }
   };
@@ -65,7 +70,7 @@ const Login = () => {
               <S.Item>|</S.Item>
               <S.Item>비밀번호 찾기</S.Item>
             </S.Left>
-            <S.Item>회원가입</S.Item>
+            <S.Item to="/register">회원가입</S.Item>
           </S.Nav>
         </S.Inputs>
       </S.Layout>

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -74,11 +73,10 @@ export const Left = styled.div`
   display: flex;
   gap: 8px;
 `;
-export const Item = styled(Link)`
+export const Item = styled.p`
   color: #595959;
   font-size: 16px;
   font-weight: 600;
-  text-decoration: none;
 `;
 
 export const Footer = styled.div`
