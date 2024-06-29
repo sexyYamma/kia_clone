@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import WhiteLogo from "../../assets/WhiteLogo";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,15 +13,15 @@ const Header = ({ type }) => {
     { value: "고객지원", location: "/" },
     { value: "Discover Kia", location: "/" },
   ];
-  const [headerState, setHeaderState] = useState(type);
+  const headerState = type;
 
   return (
     <Layout headerState={headerState}>
       <Nav>
         {LNavList.map((item, index) => (
-            <LNavText key={index} headerState={headerState} to={item.location}>
-              {item.value}
-            </LNavText>
+          <LNavText key={index} headerState={headerState} to={item.location}>
+            {item.value}
+          </LNavText>
         ))}
       </Nav>
       <LogoLayout
