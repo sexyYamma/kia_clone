@@ -21,20 +21,27 @@ const Login = () => {
     });
   };
 
-  const handleClickButton = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (inputs.id === "" || inputs.password === "") {
       alert("아이디나 비밀번호를 입력하세요.");
     } else {
-      if (
-        localStorage.getItem("id") === inputs.id &&
-        localStorage.getItem("pw") === inputs.password
-      ) {
-        setIsLogin(true)
+      const storedId = localStorage.getItem("id");
+      const storedPw = localStorage.getItem("pw");
+
+      if (storedId === inputs.id && storedPw === inputs.password) {
+        setIsLogin(true);
         alert("로그인 성공!");
         navigate("/");
       } else {
-        alert("일치하는 계정이 없습니다.");
-        setInputs({ id: "", password: "" });
+        if (storedId !== inputs.id) {
+          alert("일치하는 계정이 없습니다.");
+          setInputs({ id: "", password: "" });
+        } else if (storedId === inputs.id && storedPw !== inputs.password) {
+          alert("비밀번호가 일치하지 않습니다.");
+          setInputs({ id: inputs.id, password: "" });
+        }
       }
     }
   };
@@ -47,32 +54,34 @@ const Login = () => {
         </S.LogoLayout>
       </S.Header>
       <S.Layout>
-        <S.Inputs>
-          <S.Input_Title>∙ 이메일 로그인</S.Input_Title>
-          <S.Input_Box
-            name="id"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="이메일"
-            value={inputs.id}
-          />
-          <S.Input_Box
-            name="password"
-            onChange={handleInputChange}
-            type="password"
-            placeholder="비밀번호"
-            value={inputs.password}
-          />
-          <S.Button onClick={handleClickButton}>로그인</S.Button>
-          <S.Nav>
-            <S.Left>
-              <S.Item>아이디 찾기</S.Item>
-              <S.Item>|</S.Item>
-              <S.Item>비밀번호 찾기</S.Item>
-            </S.Left>
-            <S.Item to="/register">회원가입</S.Item>
-          </S.Nav>
-        </S.Inputs>
+        <form onSubmit={handleSubmit}>
+          <S.Inputs>
+            <S.Input_Title>∙ 이메일 로그인</S.Input_Title>
+            <S.Input_Box
+              name="id"
+              onChange={handleInputChange}
+              type="text"
+              placeholder="이메일"
+              value={inputs.id}
+            />
+            <S.Input_Box
+              name="password"
+              onChange={handleInputChange}
+              type="password"
+              placeholder="비밀번호"
+              value={inputs.password}
+            />
+            <S.Button type="submit">로그인</S.Button>
+            <S.Nav>
+              <S.Left>
+                <S.Item>아이디 찾기</S.Item>
+                <S.Item>|</S.Item>
+                <S.Item>비밀번호 찾기</S.Item>
+              </S.Left>
+              <S.Item to="/register">회원가입</S.Item>
+            </S.Nav>
+          </S.Inputs>
+        </form>
       </S.Layout>
       <hr />
       <S.Footer>

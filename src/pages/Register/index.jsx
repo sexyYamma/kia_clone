@@ -4,28 +4,29 @@ import Logo from "../../assets/WhiteLogo";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const navigate = useNavigate()
-  const [id,setid] = useState("")
-  const [pw,setpw] = useState("")
+  const navigate = useNavigate();
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
 
-  const setRegister = () => {
+  const setRegister = (e) => {
+    e.preventDefault();
     if (id && pw) {
       try {
-        localStorage.setItem("id",id)
-        localStorage.setItem("pw",pw)
-        alert("회원가입에 성공하였습니다!")
-        navigate('/login')
-      } catch(error) {
-        alert(error)
+        localStorage.setItem("id", id);
+        localStorage.setItem("pw", pw);
+        alert("회원가입에 성공하였습니다!");
+        navigate('/login');
+      } catch (error) {
+        alert(error);
       }
     } else {
       if (!id) {
-        alert("이메일이 입력되지 않았습니다")
+        alert("이메일이 입력되지 않았습니다");
       } else {
-        alert("비밀번호가 입력되지 않았습니다")
+        alert("비밀번호가 입력되지 않았습니다");
       }
     }
-  }
+  };
 
   return (
     <S.Container>
@@ -35,12 +36,14 @@ const Register = () => {
         </S.LogoLayout>
       </S.Header>
       <S.Layout>
-        <S.Inputs>
-          <S.Input_Title>∙ 이메일 회원가입</S.Input_Title>
-          <S.Input_Box type="text" placeholder="이메일" onChange={(e) => setid(e.target.value)} value={id} />
-          <S.Input_Box type="password" placeholder="비밀번호" onChange={(e) => setpw(e.target.value)} value={pw} />
-          <S.Button onClick={setRegister}>회원가입</S.Button>
-        </S.Inputs>
+        <form onSubmit={setRegister}>
+          <S.Inputs>
+            <S.Input_Title>∙ 이메일 회원가입</S.Input_Title>
+            <S.Input_Box type="text" placeholder="이메일" onChange={(e) => setId(e.target.value)} value={id} />
+            <S.Input_Box type="password" placeholder="비밀번호" onChange={(e) => setPw(e.target.value)} value={pw} />
+            <S.Button type="submit">회원가입</S.Button>
+          </S.Inputs>
+        </form>
       </S.Layout>
       <hr />
       <S.Footer>
