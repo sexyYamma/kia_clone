@@ -6,8 +6,10 @@ import Footer from "../../components/Footer";
 const Main = () => {
   return (
     <S.Layout>
-      <Header type="white" />
-      <S.BackgroundImg />
+      <S.FirstPage>
+        <Header type="white" />
+        <S.BackgroundImg />
+      </S.FirstPage>
       <Footer />
     </S.Layout>
   );

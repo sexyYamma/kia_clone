@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "../../components/Header";
 import VehicleCard from "../../components/VehicleCard";
 import CarData from '../../data/car.json'
+import Footer from "../../components/Footer";
 
 const Vehicles = () => {
   const carType = ["EV & PBV", "승용", "RV", "택시 & 버스 & 상용"];
@@ -33,6 +34,7 @@ const Vehicles = () => {
           }
         </VehiclesContents>
       </VehiclesLayout>
+      <Footer />
     </Layout>
   );
 };

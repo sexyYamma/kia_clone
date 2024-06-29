@@ -11,4 +11,11 @@ export const BackgroundImg = styled.div`
   background-image: url(${MainCar});
   background-size: cover;
   background-position: center;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 `;
+export const FirstPage = styled.div`
+  width: 100%;
+  height: 100vh;
+`
