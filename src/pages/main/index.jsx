@@ -1,31 +1,16 @@
 import React from "react";
 import Header from "../../components/Header";
-import styled from "styled-components";
-
-import MainCar from "../../assets/MainCar.png";
+import * as S from "./style";
+import Footer from "../../components/Footer";
 
 const Main = () => {
   return (
-    <Layout>
+    <S.Layout>
       <Header type="white" />
-      <BackgroundImg />
-    </Layout>
+      <S.BackgroundImg />
+      <Footer />
+    </S.Layout>
   );
 };
-
-const Layout = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
-const BackgroundImg = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(${MainCar});
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-`;
 
 export default Main;
