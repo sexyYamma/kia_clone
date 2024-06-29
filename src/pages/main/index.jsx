@@ -1,10 +1,9 @@
 import React from "react";
-import * as S from "./layouts/FirstPage/style";
 import Footer from "../../components/Footer";
 import FirstPage from "./layouts/FirstPage";
+import SecondPage from "./layouts/SecondPage";
 import ThirdPage from "./layouts/ThirdPage";
 import FourthPage from "./layouts/FourthPage";
-import SecondPage from "./layouts/SecondPage";
 
 const Main = () => {
   return (

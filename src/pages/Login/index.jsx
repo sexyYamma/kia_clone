@@ -1,23 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import Logo from "../../assets/WhiteLogo";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    id: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const handleClickButton = () => {
+    if (inputs.id === "" || inputs.password === "") {
+      alert("아이디나 비밀번호를 입력하세요.");
+    } else {
+      if (
+        localStorage.getItem("id") === inputs.id &&
+        localStorage.getItem("pw") === inputs.password
+      ) {
+        alert("로그인 성공!");
+        navigate("/");
+      } else {
+        alert("일치하는 계정이 없습니다.");
+      }
+    }
+  };
+
   return (
     <S.Container>
       <S.Header>
-        <S.LogoLayout onClick={() => navigate('/')}>
+        <S.LogoLayout onClick={() => navigate("/")}>
           <Logo color="black" />
         </S.LogoLayout>
       </S.Header>
       <S.Layout>
         <S.Inputs>
           <S.Input_Title>∙ 이메일 로그인</S.Input_Title>
-          <S.Input_Box type="text" placeholder="이메일" />
-          <S.Input_Box type="password" placeholder="비밀번호" />
-          <S.Button>로그인</S.Button>
+          <S.Input_Box
+            name="id"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="이메일"
+            value={inputs.id}
+          />
+          <S.Input_Box
+            name="password"
+            onChange={handleInputChange}
+            type="password"
+            placeholder="비밀번호"
+            value={inputs.password}
+          />
+          <S.Button onClick={handleClickButton}>로그인</S.Button>
           <S.Nav>
             <S.Left>
               <S.Item>아이디 찾기</S.Item>
