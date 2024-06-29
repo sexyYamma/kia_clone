@@ -19,8 +19,19 @@ const Login = () => {
   };
 
   const handleClickButton = () => {
-    localStorage.setItem("id", inputs.id);
-    navigate("/");
+    if (inputs.id === "" || inputs.password === "") {
+      alert("아이디나 비밀번호를 입력하세요.");
+    } else {
+      if (
+        localStorage.getItem("id") === inputs.id &&
+        localStorage.getItem("pw") === inputs.password
+      ) {
+        alert("로그인 성공!");
+        navigate("/");
+      } else {
+        alert("일치하는 계정이 없습니다.");
+      }
+    }
   };
 
   return (

@@ -33,9 +33,20 @@ const Header = ({ type }) => {
       <RightNav>
         <RNavText headerState={type}>KR</RNavText>
         <RNavText headerState={type}>통합검색</RNavText>
-        <RNavText headerState={type} to="/login">
-          로그인
-        </RNavText>
+        {localStorage.getItem("id") ? (
+          <RNavText
+            onClick={() => {
+              localStorage.removeItem("id");
+            }}
+            headerState={type}
+          >
+            로그아웃
+          </RNavText>
+        ) : (
+          <RNavText headerState={type} to="/login">
+            로그인
+          </RNavText>
+        )}
       </RightNav>
     </Layout>
   );
