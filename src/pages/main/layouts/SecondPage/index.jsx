@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
+import CarDetail from "../../../../components/CarDetail";
 
 const SecondPage = () => {
   const carType = ["최근 출시", "연비 효율", "적재공간", "안전성"];
@@ -21,7 +22,9 @@ const SecondPage = () => {
           ))}
         </S.Type>
       </S.Header>
-      <S.Cars></S.Cars>
+      <S.Cars>
+        <CarDetail />
+      </S.Cars>
     </S.Layout>
   );
 };

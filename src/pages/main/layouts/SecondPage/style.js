@@ -10,6 +10,11 @@ export const Layout = styled.div`
 
 export const Header = styled.div`
   padding-top: 120px;
+  width: 100%;
+  border-bottom: 1px solid #dadbdc;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const Title = styled.p`
