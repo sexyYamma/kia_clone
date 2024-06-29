@@ -52,7 +52,8 @@ export const Input_Box = styled.input`
   }
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
+  border: none;
   padding: 18px 0;
   display: flex;
   justify-content: center;
