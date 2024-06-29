@@ -1,17 +1,14 @@
 import React from "react";
-import Header from "../../components/Header";
-import * as S from "./style";
+import * as S from "./layouts/FirstPage/style";
 import Footer from "../../components/Footer";
+import FirstPage from "./layouts/FirstPage";
 
 const Main = () => {
   return (
-    <S.Layout>
-      <S.FirstPage>
-        <Header type="white" />
-        <S.BackgroundImg />
-      </S.FirstPage>
+    <>
+      <FirstPage />
       <Footer />
-    </S.Layout>
+    </>
   );
 };
 
