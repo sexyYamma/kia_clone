@@ -101,24 +101,26 @@ export const Nav = styled.div`
 `;
 
 export const Explains = styled.div`
-  padding-top: 42px;
   display: flex;
+  margin-top: 42px;
+  flex-wrap: wrap;
+  gap: 15px 3.6%;
 `;
 
 export const Explain = styled.div`
   display: flex;
-  gap: 8px;
-  align-items: self-start;
+  justify-content: flex-start;
 `;
 
 export const ExplainImg = styled.img`
   object-fit: contain;
+  margin-top: 5px;
 `;
 
 export const ExplainText = styled.p`
+  margin-left: 8px;
   display: flex;
-  width: 194.53px;
-  height: 72px;
+  min-width: 195px;
   color: #697279;
   font-size: 12px;
   font-weight: 400;

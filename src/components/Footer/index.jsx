@@ -36,27 +36,33 @@ const Footer = () => {
   const ExplainList = [
     {
       img: Explain1,
-      text: "23년 국가고객만족도(NCSI) 경형승용(9년연속), 중형승용(4년연속) 컴팩트RV, 대형RV 1위",
+      text: "23년 국가고객만족도(NCSI)",
+      career: "경형승용(9년연속), 중형승용(4년연속) 컴팩트RV, 대형RV 1위"
     },
     {
       img: Explain2,
-      text: "24년 한국 산업의 서비스 품질지수 우수 콜센터 선정 (21년 연속)",
+      text: "24년 한국 산업의 서비스 품질지수",
+      career: "우수 콜센터 선정 (21년 연속)"
     },
     {
       img: Explain3,
-      text: "22년 한국산업의 서비스 품질지수 자동차 A/S부문 1위 (9년 연속)",
+      text: "22년 한국산업의 서비스 품질지수",
+      career: "자동차 A/S부문 1위 (9년 연속)"
     },
     {
       img: Explain4,
-      text: "24년 대한민국 국가브랜드 대상 자동차 멤버십 부문 1위 (13년 연속)",
+      text: "24년 대한민국 국가브랜드 대상",
+      career: "자동차 멤버십 부문 1위 (13년 연속)"
     },
     {
       img: Explain5,
-      text: "23년 한국서비스품질지수(KS-SQI) 자동차 판매서비스 부문 1위 (4년 연속)",
+      text: "23년 한국서비스품질지수(KS-SQI)",
+      career: "자동차 판매서비스 부문 1위 (4년 연속)"
     },
     {
       img: Explain6,
       text: "웹 접근성 품질인증",
+      career: ""
     },
   ];
   return (
@@ -115,8 +121,13 @@ const Footer = () => {
         <S.Explains>
           {ExplainList.map((item) => (
             <S.Explain>
-              <S.ExplainImg src={item.img} alt="사진" />
-              <S.ExplainText>{item.text}</S.ExplainText>
+              <div>
+                <S.ExplainImg src={item.img} alt="사진" />
+              </div>
+              <div>
+                <S.ExplainText>{item.text}</S.ExplainText>
+                <S.ExplainText>{item.career}</S.ExplainText>
+              </div>
             </S.Explain>
           ))}
         </S.Explains>
