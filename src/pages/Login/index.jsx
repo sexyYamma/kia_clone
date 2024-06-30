@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./style";
 import Logo from "../../assets/WhiteLogo";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ const Login = () => {
     id: "",
     password: "",
   });
+  const pwRef = useRef(null)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +42,7 @@ const Login = () => {
         } else if (storedId === inputs.id && storedPw !== inputs.password) {
           alert("비밀번호가 일치하지 않습니다.");
           setInputs({ id: inputs.id, password: "" });
+          pwRef.current.focus()
         }
       }
     }
@@ -70,6 +72,7 @@ const Login = () => {
               type="password"
               placeholder="비밀번호"
               value={inputs.password}
+              ref={pwRef}
             />
             <S.Button type="submit">로그인</S.Button>
             <S.Nav>
