@@ -24,8 +24,9 @@ const SecondPage = () => {
         </S.Type>
       </S.Header>
       <S.Cars>
-        {cardetail.map((item) => (
+        {cardetail.map((item,index) => (
           <CarDetail
+            key={index}
             CarName={item.CarName}
             Rank={item.Rank}
             CarSpecification1={item.CarSpecification1}

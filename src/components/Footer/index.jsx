@@ -72,13 +72,13 @@ const Footer = () => {
         <S.Top2>
           <S.Left>
             <S.Helps>
-              {HelpList.map((item) => (
-                <S.Help>{item}</S.Help>
+              {HelpList.map((item,index) => (
+                <S.Help key={index}>{item}</S.Help>
               ))}
             </S.Helps>
             <S.Notices>
-              {NoticeList.map((item) => (
-                <S.Notice>{item}</S.Notice>
+              {NoticeList.map((item,index) => (
+                <S.Notice key={index}>{item}</S.Notice>
               ))}
             </S.Notices>
           </S.Left>
@@ -113,14 +113,14 @@ const Footer = () => {
         <S.Contents>
           <S.Notice>© Kia Corp. All rights reserved</S.Notice>
           <S.Nav>
-            {NavList.map((item) => (
-              <S.Notice>{item}</S.Notice>
+            {NavList.map((item,index) => (
+              <S.Notice key={index}>{item}</S.Notice>
             ))}
           </S.Nav>
         </S.Contents>
         <S.Explains>
-          {ExplainList.map((item) => (
-            <S.Explain>
+          {ExplainList.map((item,index) => (
+            <S.Explain key={index}>
               <div>
                 <S.ExplainImg src={item.img} alt="사진" />
               </div>
