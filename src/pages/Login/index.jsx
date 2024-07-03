@@ -21,20 +21,30 @@ const Login = () => {
     });
   };
 
-  const handleClickButton = () => {
+  const handleLogin = async () => {
     if (inputs.id === "" || inputs.password === "") {
       alert("아이디나 비밀번호를 입력하세요.");
     } else {
-      if (
-        localStorage.getItem("id") === inputs.id &&
-        localStorage.getItem("pw") === inputs.password
-      ) {
-        setIsLogin(true)
-        alert("로그인 성공!");
-        navigate("/");
-      } else {
-        alert("일치하는 계정이 없습니다.");
-        setInputs({ id: "", password: "" });
+      try {
+        const response = await fetch("http://localhost:3000/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: inputs.id,
+            password: inputs.password,
+          }),
+        });
+        if (response.ok) {
+          setIsLogin(true);
+          alert("로그인 성공!");
+          navigate("/");
+        } else {
+          throw new Error("로그인에 실패했습니다.");
+        }
+      } catch (error) {
+        alert(error.message);
       }
     }
   };
@@ -63,7 +73,7 @@ const Login = () => {
             placeholder="비밀번호"
             value={inputs.password}
           />
-          <S.Button onClick={handleClickButton}>로그인</S.Button>
+          <S.Button onClick={handleLogin}>로그인</S.Button>
           <S.Nav>
             <S.Left>
               <S.Item>아이디 찾기</S.Item>
