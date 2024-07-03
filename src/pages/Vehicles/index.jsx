@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import VehicleCard from "../../components/VehicleCard";
 import Footer from "../../components/Footer";
+import axios from "axios";
 
 const Vehicles = () => {
   const carType = ["EV & PBV", "승용", "RV", "택시 & 버스 & 상용"];
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    const fetchCarDetails = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/cars");
+        setCars(response.data);
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      }
+    };
+
+    fetchCarDetails();
+  }, []);
 
   return (
     <Layout>
@@ -26,11 +41,13 @@ const Vehicles = () => {
       </MainNavLayout>
       <VehiclesLayout>
         <VehiclesContents>
-          {/* {
-            CarData.map((item,index) => (
-              <VehicleCard name={item.name} price={item.price} img={require(`../../assets/${item.img}`)} />
-            ))
-          } */}
+          {cars.map((item, index) => (
+            <VehicleCard
+              name={item.name}
+              price={item.price}
+              img={require(`../../assets/${item.img}`)}
+            />
+          ))}
         </VehiclesContents>
       </VehiclesLayout>
       <Footer />

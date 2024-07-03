@@ -13,15 +13,16 @@ const SecondPage = () => {
       try {
         const response = await axios.get(
           "http://localhost:3000/api/cardetails"
-        ); // 서버의 엔드포인트를 정확히 명시
-        setCarDetails(response.data); // 가져온 데이터를 state에 저장
+        );
+        setCarDetails(response.data);
       } catch (error) {
         console.error("Error fetching car details:", error);
       }
     };
 
-    fetchCarDetails(); // 함수 호출
+    fetchCarDetails();
   }, []);
+  
   return (
     <S.Layout>
       <S.Header>
@@ -45,7 +46,7 @@ const SecondPage = () => {
             Rank={item.Rank}
             CarSpecification1={item.CarSpecification1}
             CarSpecification2={item.CarSpecification2}
-            CarImg={require(`../../../../assets/${item.CarImg}.png`)} // 이미지 경로를 require로 수정
+            CarImg={require(`../../../../assets/${item.CarImg}.png`)}
             ReleaseDay={item.ReleaseDay}
             High={item.High}
             Amount={item.Amount}
