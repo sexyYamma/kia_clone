@@ -17,6 +17,11 @@ const Header = ({ type }) => {
   ];
   const [isLogin, setIsLogin] = useAtom(login);
 
+  const onLogoutClick = () => {
+    setIsLogin(false)
+    alert("로그아웃되었습니다")
+  }
+
   return (
     <Layout headerState={type}>
       <Nav>
@@ -37,7 +42,7 @@ const Header = ({ type }) => {
         <RNavText headerState={type}>KR</RNavText>
         <RNavText headerState={type}>통합검색</RNavText>
         {isLogin === true ? (
-          <RNavText onClick={() => setIsLogin(false)} headerState={type}>
+          <RNavText onClick={() => onLogoutClick()} headerState={type}>
             로그아웃
           </RNavText>
         ) : (
