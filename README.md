@@ -17,6 +17,9 @@
 - 로그인 기능 백엔드 구현 및 데이터 관리
 ## 작품 제작 이유⭐️
 깔끔하고 세련된 디자인의 페이지를 찾던 중 공통된 차라는 관심사 중 가장 예쁜 페이지였음
+## 시연영상
+https://github.com/sexyYamma/kia_clone-FE/assets/126847458/bacd693f-a313-4305-a436-58dacbf33b88
+
 ## 기능설명
 - 메인페이지
 - ![image](https://github.com/sexyYamma/kia_clone-FE/assets/119480957/19f449bd-e7fb-494d-8e7c-7322b2070038)
