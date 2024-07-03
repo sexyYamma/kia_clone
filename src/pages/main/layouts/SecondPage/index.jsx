@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import CarDetail from "../../../../components/CarDetail";
-import cardetail from "../../../../data/cardetail.json";
+import axios from "axios";
 
 const SecondPage = () => {
   const carType = ["최근 출시", "연비 효율", "적재공간", "안전성"];
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [carDetails, setCarDetails] = useState([]);
 
+  useEffect(() => {
+    const fetchCarDetails = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/cardetails"
+        ); // 서버의 엔드포인트를 정확히 명시
+        setCarDetails(response.data); // 가져온 데이터를 state에 저장
+      } catch (error) {
+        console.error("Error fetching car details:", error);
+      }
+    };
+
+    fetchCarDetails(); // 함수 호출
+  }, []);
   return (
     <S.Layout>
       <S.Header>
@@ -24,7 +39,7 @@ const SecondPage = () => {
         </S.Type>
       </S.Header>
       <S.Cars>
-        {cardetail.map((item) => (
+        {carDetails.map((item) => (
           <CarDetail
             CarName={item.CarName}
             Rank={item.Rank}

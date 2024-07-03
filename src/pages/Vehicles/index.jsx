@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import VehicleCard from "../../components/VehicleCard";
-import CarData from '../../data/car.json'
 import Footer from "../../components/Footer";
 
 const Vehicles = () => {
@@ -27,11 +26,11 @@ const Vehicles = () => {
       </MainNavLayout>
       <VehiclesLayout>
         <VehiclesContents>
-          {
+          {/* {
             CarData.map((item,index) => (
               <VehicleCard name={item.name} price={item.price} img={require(`../../assets/${item.img}`)} />
             ))
-          }
+          } */}
         </VehiclesContents>
       </VehiclesLayout>
       <Footer />
@@ -76,12 +75,12 @@ const VehiclesLayout = styled.div`
   max-width: 84pc;
   padding: 94pt 0 0;
   margin: 0 auto;
-`
+`;
 
 const VehiclesContents = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-`
+`;
 
 export default Vehicles;
