@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./style";
 import Logo from "../../assets/WhiteLogo";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ const Login = () => {
     id: "",
     password: "",
   });
+  const pwRef = useRef(null)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +21,7 @@ const Login = () => {
       [name]: value,
     });
   };
-
+  
   const handleLogin = async () => {
     if (inputs.id === "" || inputs.password === "") {
       alert("아이디나 비밀번호를 입력하세요.");
