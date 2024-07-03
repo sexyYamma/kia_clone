@@ -5,26 +5,36 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({
-    id: "",
-    pw: "",
-  });
-  const setRegister = (e) => {
-    e.preventDefault();
-    if (user.id && user.pw) {
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+
+  const handleRegister = async () => {
+    if (id && pw) {
       try {
-        localStorage.setItem("id", user.id);
-        localStorage.setItem("pw", user.pw);
-        alert("회원가입에 성공하였습니다!");
-        navigate("/login");
+        const response = await fetch(
+          "http://localhost:3000/api/auth/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: id, password: pw }),
+          }
+        );
+        if (response.ok) {
+          alert("회원가입에 성공하였습니다!");
+          navigate("/login");
+        } else {
+          throw new Error("회원가입에 실패했습니다.");
+        }
       } catch (error) {
-        alert(error);
+        alert(error.message);
       }
     } else {
-      if (!user.id) {
-        alert("이메일이 입력되지 않았습니다");
+      if (!id) {
+        alert("이메일이 입력되지 않았습니다.");
       } else {
-        alert("비밀번호가 입력되지 않았습니다");
+        alert("비밀번호가 입력되지 않았습니다.");
       }
     }
   };
@@ -37,24 +47,22 @@ const Register = () => {
         </S.LogoLayout>
       </S.Header>
       <S.Layout>
-        <form onSubmit={setRegister}>
-          <S.Inputs>
-            <S.Input_Title>∙ 이메일 회원가입</S.Input_Title>
-            <S.Input_Box
-              type="text"
-              placeholder="이메일"
-              onChange={(e) => setUser({ ...user, id: e.target.value })}
-              value={user.id}
-            />
-            <S.Input_Box
-              type="password"
-              placeholder="비밀번호"
-              onChange={(e) => setUser({ ...user, pw: e.target.value })}
-              value={user.pw}
-            />
-            <S.Button type="submit">회원가입</S.Button>
-          </S.Inputs>
-        </form>
+        <S.Inputs>
+          <S.Input_Title>∙ 이메일 회원가입</S.Input_Title>
+          <S.Input_Box
+            type="text"
+            placeholder="이메일"
+            onChange={(e) => setId(e.target.value)}
+            value={id}
+          />
+          <S.Input_Box
+            type="password"
+            placeholder="비밀번호"
+            onChange={(e) => setPw(e.target.value)}
+            value={pw}
+          />
+          <S.Button onClick={handleRegister}>회원가입</S.Button>
+        </S.Inputs>
       </S.Layout>
       <hr />
       <S.Footer>

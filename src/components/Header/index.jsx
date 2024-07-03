@@ -15,7 +15,7 @@ const Header = ({ type }) => {
     { value: "고객지원", location: "/" },
     { value: "Discover Kia", location: "/" },
   ];
-  const [isLogin,setIsLogin] = useAtom(login)
+  const [isLogin, setIsLogin] = useAtom(login);
 
   return (
     <Layout headerState={type}>
@@ -36,11 +36,8 @@ const Header = ({ type }) => {
       <RightNav>
         <RNavText headerState={type}>KR</RNavText>
         <RNavText headerState={type}>통합검색</RNavText>
-        {localStorage.getItem("id") && isLogin === true ? (
-          <RNavText
-            onClick={() => setIsLogin(false)}
-            headerState={type}
-          >
+        {isLogin === true ? (
+          <RNavText onClick={() => setIsLogin(false)} headerState={type}>
             로그아웃
           </RNavText>
         ) : (

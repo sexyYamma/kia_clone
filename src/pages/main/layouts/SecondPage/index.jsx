@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import CarDetail from "../../../../components/CarDetail";
-import cardetail from "../../../../data/cardetail.json";
+import axios from "axios";
 
 const SecondPage = () => {
   const carType = ["최근 출시", "연비 효율", "적재공간", "안전성"];
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [carDetails, setCarDetails] = useState([]);
 
+  useEffect(() => {
+    const fetchCarDetails = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/cardetails"
+        );
+        setCarDetails(response.data);
+      } catch (error) {
+        console.error("Error fetching car details:", error);
+      }
+    };
+
+    fetchCarDetails();
+  }, []);
+  
   return (
     <S.Layout>
       <S.Header>
@@ -24,14 +40,14 @@ const SecondPage = () => {
         </S.Type>
       </S.Header>
       <S.Cars>
-        {cardetail.map((item,index) => (
+        {carDetails.map((item,index) => (
           <CarDetail
             key={index}
             CarName={item.CarName}
             Rank={item.Rank}
             CarSpecification1={item.CarSpecification1}
             CarSpecification2={item.CarSpecification2}
-            CarImg={require(`../../../../assets/${item.CarImg}.png`)} // 이미지 경로를 require로 수정
+            CarImg={require(`../../../../assets/${item.CarImg}.png`)}
             ReleaseDay={item.ReleaseDay}
             High={item.High}
             Amount={item.Amount}
