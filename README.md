@@ -1,5 +1,30 @@
 # 기아 홈페이지 클론코딩
 ![image](https://github.com/sexyYamma/kia_clone/assets/119480957/7bdff39f-d32b-4757-818b-fc73904cd516)
+## 기술 스택
+### Front-end
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/bf4bf9fd-5344-47a2-852a-03005b8d30c7" style="width: 150px; height: 150px;">
+리액트
+<br/>
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/3ceaf2ef-0469-42eb-af76-82bd02ab1190" style="width: 150px; height: 150px;">\
+axios
+<br/>
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/5ce9148b-3d5d-46ea-8aff-a4cc75b1e455" style="width: 150px; height: 150px;">
+jotai
+<br/>
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/9cdb059e-6668-47b6-b694-8cd7667db928" style="width: 150px; height: 150px;">
+styled-components
+<br/>
+### Back-end
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/a45ef507-e4f6-44c8-a913-a85c32a0e25c" style="width: 150px; height: 150px;">
+node.js
+<br>
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/e37bceaa-2667-4888-8e3e-d1cd29005943" style="width: 150px; height: 150px;">
+sequelize
+<br>
+<img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/64c1e23b-0130-4cc8-97f3-6c0e43257303" style="width: 150px; height: 150px;">
+MySQL
+<br>
+
 ## 개발기간
 6/16 ~ 7/4
 ## 팀 구성
