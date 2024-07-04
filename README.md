@@ -1,7 +1,7 @@
 # 기아 홈페이지 클론코딩
 ![image](https://github.com/sexyYamma/kia_clone/assets/119480957/7bdff39f-d32b-4757-818b-fc73904cd516)
 ## 기술 스택
-### Front-end
+<h3>Front-end</h3>
 <img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/bf4bf9fd-5344-47a2-852a-03005b8d30c7" style="width: 150px; height: 150px;">
 리액트
 <br/>
@@ -14,7 +14,8 @@ jotai
 <img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/9cdb059e-6668-47b6-b694-8cd7667db928" style="width: 150px; height: 150px;">
 styled-components
 <br/>
-### Back-end
+<h3>Back-end</h3>
+<br/>
 <img src="https://github.com/sexyYamma/kia_clone-FE/assets/126847458/a45ef507-e4f6-44c8-a913-a85c32a0e25c" style="width: 150px; height: 150px;">
 node.js
 <br>
